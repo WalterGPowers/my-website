@@ -1,6 +1,6 @@
 # my-website
 Walter Powers website
 
-This is a website about my garden!
+This is a website about my WOW toons!
 
-Add a video of a tour of my garden
+

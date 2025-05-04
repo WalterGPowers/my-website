@@ -1,0 +1,90 @@
+
+/* Reset and base setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Type Selectors */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #00b4d8;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin: 20px 0 10px;
+}
+
+ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Class Selector */
+.class-profile {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* === Relational Selectors === */
+
+/* Style all paragraphs inside class-profile blocks */
+.class-profile p {
+    color: #dddddd;
+    font-style: italic;
+}
+
+/* Style the ol that immediately follows an h4 */
+h4 + ol {
+    border-left: 3px solid #555;
+    padding-left: 30px;
+    margin-top: 5px;
+}
+
+/* Style any li directly inside a ul */
+ul > li {
+    color: #1db954;
+}
+
+
+/* Pseudo-class: Hover effect for links */
+a:hover {
+    text-decoration: underline;
+    color: #ffd700;
+}
