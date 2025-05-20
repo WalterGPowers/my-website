@@ -60,6 +60,13 @@ body {
     overflow-x: auto;
 }
 
+.responsive-img {
+    max-width: 100%;    /* Never exceed the width of the container */
+    height: auto;       /* Maintain the aspect ratio */
+    display: block;     /* Removes unwanted bottom spacing */
+    border-radius: 8px; /* Optional: gives rounded corners */
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
