@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World of Warcraft Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Deathcaller's WoW Gallery</title>
+  <meta name="description" content="Browse my WoW toons, specs & transmogs">
+  <link rel="icon" href="favicon.ico"><meta name="theme-color" content="#121212">
+  <meta property="og:title" content="Deathcaller's WoW Gallery">
+  <meta property="og:description" content="Explore my World of Warcraft characters and their specializations.">
+  <meta property="og:image" content="images/share-preview.jpg">
+  <link rel="preload" as="image" href="images/Dragon.jpg">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{
+    "@context":"https://schema.org","@type":"WebPage",
+    "name":"Deathcaller's WoW Gallery",
+    "description":"A showcase of World of Warcraft characters & transmogs",
+    "publisher":{"@type":"Person","name":"Walter Powers"}
+  }</script>
 </head>
 <body>
-    <a id="top"></a>
-    <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="classes1.html">Classes 1</a>
-        <a href="classes2.html">Classes 2</a>
-    </nav>
-    <main>
-        <header>
-            <h1>Deathcaller's World of Warcraft</h1>
-            <p>This is my current toon collection from playing WOW.</p>
-        </header>
-        <img src="images/Wow_banner.jpg" alt="A wallpaper of a World of Warcraft scene" class="responsive-img">
-        <section>
-            <h2>Welcome!</h2>
-            <p>
-                Explore my World of Warcraft characters. Use the navigation above to browse character classes and learn more about their specializations.
-            </p>
-        </section>
-    </main>
-    <a href="#top" class="back-to-top">Back to Top ↑</a>
-    <footer>
-        All pictures are of my current transmogs.
-        <p>&copy; Walter Powers 2025</p>
-    </footer>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header role="banner">
+    <nav role="navigation" aria-label="Main"><ul class="nav__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="classes1.html">Classes 1</a></li>
+      <li><a href="classes2.html">Classes 2</a></li>
+    </ul></nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Deathcaller's WoW Gallery</h1>
+      <p>My current toon collection & class specializations.</p>
+    </section>
+    <section class="intro" aria-labelledby="intro-title">
+      <h2 id="intro-title">Welcome!</h2>
+      <p>Use the menu above to explore each class’s specializations and transmogs.</p>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>All pictures are of my current transmogs.</p>
+    <p><a href="#main">Back to top ↑</a></p><p>&copy; Walter Powers 2025</p>
+  </footer>
 </body>
 </html>

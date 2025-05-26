@@ -1,223 +1,96 @@
-/* Reset and base setup */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+  --bg: #121212;
+  --fg: #ffffff;
+  --accent: #e07c08;
+  --space: 1rem;
+  --radius: 0.5rem;
 }
-
-/* --- Navigation Bar Styles --- */
-.navbar {
-    display: flex;
-    justify-content: center;
-    background: #222;
-    padding: 0.75rem 0;
-    margin-bottom: 2rem;
-    gap: 1.5rem;
-    border-radius: 8px;
+html.light {
+  --bg: #ffffff;
+  --fg: #000000;
 }
-
-.navbar a {
-    color: #8ad3ff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 1.25rem;
-    border-radius: 5px;
-    transition: background 0.2s, color 0.2s;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-
-.navbar a:hover,
-.navbar a:focus {
-    background: #333;
-    color: #ffd700;
-}
-
-.back-to-top {
-    display: inline-block;
-    margin: 2rem auto 1rem auto;
-    padding: 0.5rem 1.25rem;
-    background: #222;
-    color: #8ad3ff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    box-shadow: 0 2px 8px #0005;
-    transition: background 0.2s, color 0.2s;
-}
-
-.back-to-top:hover,
-.back-to-top:focus {
-    background: #333;
-    color: #ffd700;
-}
-
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #f0f0f0;
-    padding: 20px;
-    line-height: 1.6;
-    /* Allow for some horizontal scrolling on mobile if needed */
-    overflow-x: auto;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
 }
-
-.responsive-img {
-    max-width: 100%;    /* Never exceed the width of the container */
-    height: auto;       /* Maintain the aspect ratio */
-    display: block;     /* Removes unwanted bottom spacing */
-    border-radius: 8px; /* Optional: gives rounded corners */
+/* Skip Link */
+.skip-link {
+  position: absolute; top: -40px; left: 0;
+  background: #ffd700; color: #121212;
+  padding: 0.5em; z-index: 1000;
+  transition: top 0.3s;
 }
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+.skip-link:focus { top: 0; }
+/* Smooth Scrolling */
+html { scroll-behavior: smooth; }
+/* Navigation */
+.nav__list {
+  list-style: none; display: flex;
+  gap: var(--space); justify-content: center;
+  padding: var(--space); margin: 0;
+  background-color: var(--accent);
 }
-
-/* Type Selectors */
-p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.nav__list a {
+  color: var(--fg); text-decoration: none;
+  background: none; border: none; font: inherit;
+  cursor: pointer; padding: 0.5em 1em;
+  border-radius: var(--radius);
+  transition: background 0.2s;
 }
-
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 10px 0;
-    display: block;
+.nav__list a:hover { background: rgba(255,255,255,0.2); }
+/* Hero */
+.hero {
+  display: grid; place-items: center; text-align: center;
+  min-height: 60vh; padding: calc(2 * var(--space));
+  position: relative;
+  background: url('images/Dragon.jpg') center/cover no-repeat;
 }
-
-h2 {
-    margin-bottom: 20px;
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(0,0,0,0.4);
 }
-
-h3 {
-    font-size: 1.5rem;
-    color: #05642d;
-    margin-bottom: 8px;
+.hero * { position: relative; z-index: 1; }
+/* Intro & Gallery */
+.intro {
+  padding: var(--space); max-width: 800px;
+  margin: 0 auto; text-align: center;
 }
-
-h4 {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin: 20px 0 10px;
+.gallery {
+  display: grid; gap: var(--space);
+  padding: var(--space);
 }
-
-ol {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
-/* === Responsive Layout for .class-profile Cards === */
-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-/* Class Selector */
+@media (min-width:600px) { .gallery { grid-template-columns: repeat(2,1fr); } }
+@media (min-width:900px) { .gallery { grid-template-columns: repeat(3,1fr); } }
+/* Class Profiles */
 .class-profile {
-    background-image: url('images/Orgrimmar.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px;
-    border-radius: 8px;
-    color: white;
-    box-shadow: 0 2px 12px #0008;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 420px;
-    /* Make sure content stands out on background image */
-    background-blend-mode: multiply;
-    background-color: rgba(30,30,30,0.75);
+  background-image: url('images/Orgrimmar.jpg');
+  background-size: cover; background-position: center;
+  padding: var(--space); border-radius: var(--radius);
+  color: #fff; display: flex; flex-direction: column;
+  text-shadow: 0 2px 8px #000c;
 }
-
-/* Make sure text is readable over image backgrounds */
-.class-profile h3,
-.class-profile p,
-.class-profile h4,
-.class-profile ol,
-.class-profile ul {
-    text-shadow: 0 2px 8px #000c;
+.class-profile img { width: 100%; border-radius: var(--radius); }
+.class-profile h4 { margin-top: auto; }
+/* Footer & Links */
+.jump-link, .back-to-top {
+  display: inline-block; margin: var(--space) auto;
+  padding: 0.5em 1em; background: var(--accent);
+  color: var(--fg); text-decoration: none;
+  border-radius: var(--radius); text-align: center;
+  transition: background 0.2s;
 }
-
-/* Style all paragraphs inside class-profile blocks */
-.class-profile p {
-    color: #dddddd;
-    font-style: italic;
-    text-align: left;
+.jump-link:hover, .back-to-top:hover {
+  background: rgba(255,255,255,0.2);
 }
-
-/* Style the ol that immediately follows an h4 */
-h4 + ol {
-    border-left: 3px solid #555;
-    padding-left: 30px;
-    margin-top: 5px;
-}
-
-/* Style any li directly inside a ul */
-ul > li {
-    color: #1db954;
-}
-
-/* Pseudo-class: Hover effect for links */
-a:hover {
-    text-decoration: underline;
-    color: #ffd700;
-}
-
-/* Footer styles */
 footer {
-    text-align: center;
-    padding: 1rem;
-    background: #181818;
-    color: #b0b0b0;
-    border-radius: 0 0 8px 8px;
-    margin: 2rem 1rem 0 1rem;
-    font-size: 0.95rem;
+  text-align: center; padding: var(--space);
+  background: #222; color: #b0b0b0;
 }
-
-/* --- Responsive tweaks --- */
-@media (max-width: 900px) {
-    main {
-        padding: 0.5rem;
-    }
-    section {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0;
-    }
-    .class-profile {
-        min-height: unset;
-        padding: 14px 6px;
-    }
-}
-
-@media (max-width: 500px) {
-    body {
-        padding: 8px;
-    }
-    main {
-        padding: 0.25rem;
-    }
-    h2, h3, h4 {
-        font-size: 1.1rem;
-    }
-    .class-profile {
-        padding: 10px 2px;
-        border-radius: 6px;
-    }
-}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
