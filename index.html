@@ -9,7 +9,11 @@
   <meta property="og:description" content="Explore my World of Warcraft characters and their specializations.">
   <meta property="og:image" content="images/share-preview.jpg">
   <link rel="preload" as="image" href="images/Dragon.jpg">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script type="application/ld+json">{
     "@context":"https://schema.org","@type":"WebPage",
     "name":"Deathcaller's WoW Gallery",
@@ -18,17 +22,22 @@
   }</script>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
   <header role="banner">
-    <nav role="navigation" aria-label="Main"><ul class="nav__list">
+    <nav role="navigation" aria-label="Main"><ul class="nav__list quintessential-regular">
       <li><a href="index.html">Home</a></li>
       <li><a href="classes1.html">Classes 1</a></li>
       <li><a href="classes2.html">Classes 2</a></li>
+      <li><a href="stat_priority1.html">Stats 1</a></li>
+      <li><a href="stat_priority2.html">Stats 2</a></li>
     </ul></nav>
   </header>
   <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Deathcaller's WoW Gallery</h1>
+<h1 id="hero-title" class="gallery-title">
+  <i class="fa-solid fa-dragon dragon-icon left"></i>
+  Deathcaller's WoW Gallery
+  <i class="fa-solid fa-dragon dragon-icon right"></i>
+</h1>
       <p>My current toon collection & class specializations.</p>
     </section>
     <section class="intro" aria-labelledby="intro-title">
