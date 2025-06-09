@@ -5,13 +5,18 @@
   --space: 1rem;
   --radius: 0.5rem;
 }
+
 html.light {
   --bg: #ffffff;
   --fg: #000000;
 }
-*, *::before, *::after {
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -19,55 +24,95 @@ body {
   color: var(--fg);
   line-height: 1.5;
 }
+
 /* Skip Link */
 .skip-link {
-  position: absolute; top: -40px; left: 0;
-  background: #ffd700; color: #121212;
-  padding: 0.5em; z-index: 1000;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #ffd700;
+  color: #121212;
+  padding: 0.5em;
+  z-index: 1000;
   transition: top 0.3s;
 }
-.skip-link:focus { top: 0; }
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* Smooth Scrolling */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
+
 /* Navigation */
 .nav__list {
-  list-style: none; display: flex;
-  gap: var(--space); justify-content: center;
-  padding: var(--space); margin: 0;
+  list-style: none;
+  display: flex;
+  gap: var(--space);
+  justify-content: center;
+  padding: var(--space);
+  margin: 0;
   background-color: var(--accent);
 }
+
 .nav__list a {
-  color: var(--fg); text-decoration: none;
-  background: none; border: none; font: inherit;
-  cursor: pointer; padding: 0.5em 1em;
+  color: var(--fg);
+  text-decoration: none;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5em 1em;
   border-radius: var(--radius);
   transition: background 0.2s;
   font-family: "Quintessential", serif;
   font-weight: 400;
   font-style: normal;
 }
-.nav__list a:hover { background: rgba(255,255,255,0.2); }
+
+.nav__list a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 /* Hero */
 .hero {
-  display: grid; place-items: center; text-align: center;
-  min-height: 60vh; padding: calc(2 * var(--space));
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 60vh;
+  padding: calc(2 * var(--space));
   position: relative;
   background: url('images/Dragon.jpg') center/cover no-repeat;
 }
+
 .hero::after {
-  content: ''; position: absolute; inset: 0;
-  background: rgba(0,0,0,0.4);
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
-.hero * { position: relative; z-index: 1; }
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Intro & Gallery */
 .intro {
-  padding: var(--space); max-width: 800px;
-  margin: 0 auto; text-align: center;
+  padding: var(--space);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
+
 .gallery {
-  display: grid; gap: var(--space);
+  display: grid;
+  gap: var(--space);
   padding: var(--space);
 }
+
 .gallery-title {
   display: flex;
   align-items: center;
@@ -79,36 +124,66 @@ html { scroll-behavior: smooth; }
 
 .dragon-icon {
   font-size: 2rem;
-  color: var(--accent); /* Use your site's accent color or set a custom color */
+  color: var(--accent);
+  /* Use your site's accent color or set a custom color */
 }
 
 .dragon-icon.left {
-  transform: scaleX(-1); /* Flip the left dragon */
+  transform: scaleX(-1);
+  /* Flip the left dragon */
 }
-@media (min-width:600px) { .gallery { grid-template-columns: repeat(2,1fr); } }
-@media (min-width:900px) { .gallery { grid-template-columns: repeat(3,1fr); } }
+
+@media (min-width:600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width:900px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Class Profiles */
 .class-profile {
   background-image: url('images/Orgrimmar.jpg');
-  background-size: cover; background-position: center;
-  padding: var(--space); border-radius: var(--radius);
-  color: #fff; display: flex; flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  padding: var(--space);
+  border-radius: var(--radius);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
   text-shadow: 0 2px 8px #000c;
 }
-.class-profile img { width: 100%; border-radius: var(--radius); }
-.class-profile h4 { margin-top: auto; }
+
+.class-profile img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.class-profile h4 {
+  margin-top: auto;
+}
+
 .class-profile a {
-  color: #FFD700; /* Bright gold text */
+  color: #FFD700;
+  /* Bright gold text */
   text-decoration: underline;
-  text-decoration-color: #FFD700; /* Matches text color */
+  text-decoration-color: #FFD700;
+  /* Matches text color */
   text-underline-offset: 3px;
   font-weight: bold;
   transition: color 0.3s, text-decoration-color 0.3s;
 }
+
 .class-profile a:hover {
-  color: #FF4500; /* OrangeRed on hover */
+  color: #FF4500;
+  /* OrangeRed on hover */
   text-decoration-color: #FF4500;
 }
+
 .stat-priority {
   padding: 1rem;
   background-color: #1e1e1e;
@@ -125,7 +200,8 @@ html { scroll-behavior: smooth; }
 .stat-flex-container {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  flex-wrap: wrap;
+  /* Ensures responsiveness on smaller screens */
   justify-content: center;
 }
 
@@ -133,7 +209,8 @@ html { scroll-behavior: smooth; }
   background-color: #2c2c2c;
   padding: 1rem;
   border-radius: var(--radius);
-  flex: 1 1 300px; /* flexible width with a minimum of 300px */
+  flex: 1 1 300px;
+  /* flexible width with a minimum of 300px */
   max-width: 400px;
 }
 
@@ -149,19 +226,36 @@ html { scroll-behavior: smooth; }
 }
 
 /* Footer & Links */
-.jump-link, .back-to-top {
-  display: inline-block; margin: var(--space) auto;
-  padding: 0.5em 1em; background: var(--accent);
-  color: var(--fg); text-decoration: none;
-  border-radius: var(--radius); text-align: center;
+.jump-link,
+.back-to-top {
+  display: inline-block;
+  margin: var(--space) auto;
+  padding: 0.5em 1em;
+  background: var(--accent);
+  color: var(--fg);
+  text-decoration: none;
+  border-radius: var(--radius);
+  text-align: center;
   transition: background 0.2s;
 }
-.jump-link:hover, .back-to-top:hover {
-  background: rgba(255,255,255,0.2);
+
+.jump-link:hover,
+.back-to-top:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
+
 footer {
-  text-align: center; padding: var(--space);
-  background: #222; color: #b0b0b0;
+  text-align: center;
+  padding: var(--space);
+  background: #222;
+  color: #b0b0b0;
 }
-footer a { color: var(--accent); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
