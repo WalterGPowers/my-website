@@ -3,57 +3,99 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
   <title>Deathcaller's WoW Gallery</title>
-  <meta name="description" content="Browse my WoW toons, specs & transmogs">
-  <link rel="icon" href="favicon.ico">
-  <meta name="theme-color" content="#121212">
+  <meta name="description" content="Browse my WoW toons, specs &amp; transmogs on Deathcaller’s WoW Gallery">
+  <meta name="author" content="Walter Powers"> <!-- AUTHOR TAG -->
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourdomain.com/index.html"> <!-- REPLACE with your real URL -->
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Deathcaller's WoW Gallery">
   <meta property="og:description" content="Explore my World of Warcraft characters and their specializations.">
   <meta property="og:image" content="images/share-preview.jpg">
-  <link rel="preload" as="image" href="images/Dragon.jpg">
-  <link rel="stylesheet" href="styles.css">
+  <meta property="og:url" content="https://yourdomain.com/index.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deathcaller's WoW Gallery">
+  <meta name="twitter:description" content="Explore my World of Warcraft characters and their specializations.">
+  <meta name="twitter:image" content="images/share-preview.jpg">
+
+  <!-- Favicon & Theme Color -->
+  <link rel="icon" href="favicon.ico">
+  <meta name="theme-color" content="#121212">
+
+  <!-- Preconnect to speed up font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="application/ld+json">{
-    "@context":"https://schema.org","@type":"WebPage",
-    "name":"Deathcaller's WoW Gallery",
-    "description":"A showcase of World of Warcraft characters & transmogs",
-    "publisher":{"@type":"Person","name":"Walter Powers"}
-  }</script>
+
+  <!-- Preload critical font file (replace URL with the actual .woff2 from Google’s CSS) -->
+  <!-- <link rel="preload" as="font" href="https://fonts.gstatic.com/s/quintessential/v8/QUINTESSENTIAL.woff2" type="font/woff2" crossorigin> -->
+
+  <!-- Critical CSS (visually‐hidden utility) -->
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+  </style>
+
+  <!-- Main Stylesheet (loaded normally; consider async/deferred loading if you inline more) -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header role="banner">
-    <nav role="navigation" aria-label="Main">
-      <ul class="nav__list quintessential-regular">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="classes1.html">Classes 1</a></li>
-        <li><a href="classes2.html">Classes 2</a></li>
-        <li><a href="stat_priority1.html">Stats 1</a></li>
-        <li><a href="stat_priority2.html">Stats 2</a></li>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul class="nav__list">
+        <li><a href="index.html" aria-current="page">Home</a></li> <!-- aria-current on active link -->
+        <li><a href="html/classes1.html">Classes 1</a></li>
+        <li><a href="html/classes2.html">Classes 2</a></li>
+        <li><a href="html/stat_priority1.html">Stats 1</a></li>
+        <li><a href="html/stat_priority2.html">Stats 2</a></li>
       </ul>
     </nav>
   </header>
+
   <main id="main" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-title">
+    <!-- Hidden section title for screen readers -->
+    <h2 id="hero-section-title" class="visually-hidden">Home – Deathcaller’s WoW Gallery</h2>
+
+    <section class="hero" role="region" aria-labelledby="hero-title">
       <h1 id="hero-title" class="gallery-title">
-        <i class="fa-solid fa-dragon dragon-icon left"></i>
-        Deathcaller's WoW Gallery
-        <i class="fa-solid fa-dragon dragon-icon right"></i>
+        <i class="fa-solid fa-dragon dragon-icon left" aria-hidden="true"></i>
+        Deathcaller’s WoW Gallery
+        <i class="fa-solid fa-dragon dragon-icon right" aria-hidden="true"></i>
       </h1>
-      <p>My current toon collection & class specializations.</p>
+      <p>My current toon collection &amp; class specializations.</p>
     </section>
+
     <section class="intro" aria-labelledby="intro-title">
       <h2 id="intro-title">Welcome!</h2>
       <p>Use the menu above to explore each class’s specializations and transmogs.</p>
     </section>
   </main>
+
   <footer role="contentinfo">
     <p>All pictures are of my current transmogs.</p>
-    <p><a href="#main">Back to top ↑</a></p>
     <p>&copy; Walter Powers 2025</p>
   </footer>
 </body>

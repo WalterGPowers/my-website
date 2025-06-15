@@ -2,6 +2,12 @@
   --bg: #121212;
   --fg: #ffffff;
   --accent: #e07c08;
+  --bg-alt: #1e1e1e;
+  --card-bg: #2c2c2c;
+  --link-color: #ffd700;
+  --link-hover: #ff4500;
+  --footer-bg: #222;
+  --footer-fg: #b0b0b0;
   --space: 1rem;
   --radius: 0.5rem;
 }
@@ -11,9 +17,7 @@ html.light {
   --fg: #000000;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -28,11 +32,11 @@ body {
 /* Skip Link */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -3rem;
   left: 0;
-  background: #ffd700;
-  color: #121212;
-  padding: 0.5em;
+  background: var(--link-color);
+  color: var(--bg);
+  padding: 0.5em 1em;
   z-index: 1000;
   transition: top 0.3s;
 }
@@ -46,12 +50,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Focus outline */
+a:focus-visible,
+button:focus-visible,
+.back-to-top:focus-visible,
+.nav__list a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* Navigation */
 .nav__list {
   list-style: none;
   display: flex;
   gap: var(--space);
   justify-content: center;
+  flex-wrap: wrap;
   padding: var(--space);
   margin: 0;
   background-color: var(--accent);
@@ -60,19 +74,15 @@ html {
 .nav__list a {
   color: var(--fg);
   text-decoration: none;
-  background: none;
-  border: none;
-  font: inherit;
-  cursor: pointer;
+  font-family: "Quintessential", serif;
   padding: 0.5em 1em;
   border-radius: var(--radius);
   transition: background 0.2s;
-  font-family: "Quintessential", serif;
-  font-weight: 400;
-  font-style: normal;
+  white-space: nowrap;
 }
 
-.nav__list a:hover {
+.nav__list a:hover,
+.nav__list a:focus-visible {
   background: rgba(255, 255, 255, 0.2);
 }
 
@@ -84,7 +94,7 @@ html {
   min-height: 60vh;
   padding: calc(2 * var(--space));
   position: relative;
-  background: url('images/Dragon.jpg') center/cover no-repeat;
+  background: url('../images/Dragon.jpg') center/cover no-repeat;
 }
 
 .hero::after {
@@ -99,7 +109,7 @@ html {
   z-index: 1;
 }
 
-/* Intro & Gallery */
+/* Intro */
 .intro {
   padding: var(--space);
   max-width: 800px;
@@ -107,17 +117,37 @@ html {
   text-align: center;
 }
 
+/* Gallery */
 .gallery {
   display: grid;
   gap: var(--space);
   padding: var(--space);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .gallery-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: var(--space);
   font-size: 2rem;
   text-align: center;
 }
@@ -125,93 +155,82 @@ html {
 .dragon-icon {
   font-size: 2rem;
   color: var(--accent);
-  /* Use your site's accent color or set a custom color */
 }
 
 .dragon-icon.left {
   transform: scaleX(-1);
-  /* Flip the left dragon */
-}
-
-@media (min-width:600px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width:900px) {
-  .gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 /* Class Profiles */
 .class-profile {
-  background-image: url('images/Orgrimmar.jpg');
+  background-image: url('../images/Orgrimmar.jpg');
   background-size: cover;
   background-position: center;
   padding: var(--space);
   border-radius: var(--radius);
-  color: #fff;
+  color: var(--fg);
   display: flex;
   flex-direction: column;
-  text-shadow: 0 2px 8px #000c;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .class-profile img {
   width: 100%;
+  height: auto;
   border-radius: var(--radius);
+  margin-bottom: var(--space);
 }
 
-.class-profile h4 {
-  margin-top: auto;
+.class-profile:hover,
+.class-profile:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .class-profile a {
-  color: #FFD700;
-  /* Bright gold text */
+  color: var(--link-color);
   text-decoration: underline;
-  text-decoration-color: #FFD700;
-  /* Matches text color */
   text-underline-offset: 3px;
   font-weight: bold;
   transition: color 0.3s, text-decoration-color 0.3s;
 }
 
-.class-profile a:hover {
-  color: #FF4500;
-  /* OrangeRed on hover */
-  text-decoration-color: #FF4500;
+.class-profile a:hover,
+.class-profile a:focus-visible {
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover);
 }
 
+/* Stat Priority Section */
 .stat-priority {
-  padding: 1rem;
-  background-color: #1e1e1e;
+  padding: var(--space);
+  background-color: var(--bg-alt);
   border-radius: var(--radius);
-  margin-top: 2rem;
-}
-
-.stat-priority h2 {
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--accent);
+  margin: var(--space) 0;
 }
 
 .stat-flex-container {
   display: flex;
-  gap: 2rem;
+  gap: var(--space);
   flex-wrap: wrap;
-  /* Ensures responsiveness on smaller screens */
   justify-content: center;
+  align-content: flex-start;
 }
 
 .class-stats {
-  background-color: #2c2c2c;
-  padding: 1rem;
+  background-color: var(--card-bg);
+  padding: var(--space);
   border-radius: var(--radius);
   flex: 1 1 300px;
-  /* flexible width with a minimum of 300px */
-  max-width: 400px;
+  max-width: 300px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.class-stats:hover,
+.class-stats:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .class-stats h3 {
@@ -225,8 +244,7 @@ html {
   padding-left: 1.5rem;
 }
 
-/* Footer & Links */
-.jump-link,
+/* Back to Top */
 .back-to-top {
   display: inline-block;
   margin: var(--space) auto;
@@ -239,16 +257,17 @@ html {
   transition: background 0.2s;
 }
 
-.jump-link:hover,
-.back-to-top:hover {
+.back-to-top:hover,
+.back-to-top:focus-visible {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: var(--space);
-  background: #222;
-  color: #b0b0b0;
+  background: var(--footer-bg);
+  color: var(--footer-fg);
 }
 
 footer a {
@@ -256,6 +275,7 @@ footer a {
   text-decoration: none;
 }
 
-footer a:hover {
+footer a:hover,
+footer a:focus-visible {
   text-decoration: underline;
 }
